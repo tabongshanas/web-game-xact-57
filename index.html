@@ -4,19 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Xact 57</title>
     <link rel="stylesheet" href="/main-css.css">
+    <link rel="stylesheet" href="/icons/fontawesome/css/font-awesome.css">
 </head>
     <body>
         
-        <main>
+        <main id="main">
+
+            
+
             <div class="game-container">
-                <section class="player player--0 active-player">
+                <section class="player player--0">
                     <div class="fix-player-text">
                         <p class="player-text">
                             player 1
                         </p>
-                        <p class="player-main-score">
+                        <p class="player-main-score player-main-score--0">
                             0
                         </p>
                     </div>
@@ -24,19 +28,19 @@
                         <p class="current-score-text">
                             current
                         </p>
-                        <p class="player-current-score">
+                        <p class="player-current-score" id="score--0">
                             10
                         </p>
                     </div>
                 </section>
 
 
-                <section class="player player--1">
+                <section class="player player--1 active-player">
                     <div class="fix-player-text">
                         <p class="player-text">
                             player 2
                         </p>
-                        <p class="player-main-score">
+                        <p class="player-main-score player-main-score--1">
                             0
                         </p>
                     </div>
@@ -44,7 +48,7 @@
                         <p class="current-score-text">
                             current
                         </p>
-                        <p class="player-current-score">
+                        <p class="player-current-score" id="score--1">
                             10
                         </p>
                     </div> 
@@ -52,14 +56,14 @@
 
 
                 <div class="game-functionnalities">
-                    <button class="game-btn">new game</button>
-                    <div class="dice-image">
-                        <img src="/dice--6.png" alt="">
+                    <button class="game-btn" id="new-game-btn">new game</button>
+                    <div class="dice-image-container">
+                        <img src="dice-6.png" alt="playing dice" class="dice-image">
                     </div>
 
                     <div class="roll-hold-container">
-                        <button class="game-btn ed">roll dice</button>
-                        <button class="game-btn">hold</button>
+                        <button class="game-btn ed" id="roll-dice-btn">roll dice</button>
+                        <button class="game-btn" id="hold-btn">hold</button>
                     </div>
                 </div>
             </div>
@@ -75,7 +79,17 @@
                 <span>:</span>
                 <span id="sec">00</span>
             </div>
+
+
+            <div class="game-rules-container">
+                <p class="game-rule-btn"><span>g</span>ame <span>r</span>ules</p>
+
+                <div class="game-rule-content">
+                    <i class="fa fa-times" id="close-game-rule"></i>
+                </div>
+            </div>
         </main>
 
+        <script src="/script.js"></script>
     </body>
 </html>
