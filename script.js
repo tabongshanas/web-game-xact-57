@@ -22,9 +22,15 @@ const playerMainScore1El = document.querySelector('.player-main-score--1');
 // game rule selecting elements
 const gameRuleBtn = document.querySelector('.game-rule-btn');
 const gameRuleContent = document.querySelector('.game-rule-content');
+const layer = document.querySelector('.layer');
+const hideTools = document.querySelector('.hide-tools');
+const showTools = document.querySelector('.show-tools');
+const author = document.querySelector('.author');
+const restart = document.querySelector('.restart');
 const closeGameRule = document.getElementById('close-game-rule');
 const mainBackgroundWinner = document.getElementById('main');
 
+showTools.classList.add('hidden');
 
 // time functionality
 setInterval(function(){
@@ -47,14 +53,30 @@ const switchPlayer = function () {
 
 
 // reseting elements
-score0El.textContent = 0;
-score1El.textContent = 0;
-diceImage.classList.add('hidden');
+let currentScore , activePlayer , gameState , playerScores;
+const init = function() {
+    score0El.textContent = 0;
+    score1El.textContent = 0;
+    playerMainScore0El.textContent = 0;
+    playerMainScore1El.textContent = 0;
+    diceImage.classList.add('hidden');
 
-const playerScores = [0 , 0];
-let currentScore = 0;
-let activePlayer = 0;
-let gameState = true;
+    playerScores = [0 , 0];
+    currentScore = 0;
+    activePlayer = 0;
+    gameState = true;
+
+    layer.classList.add('hidden');
+
+    player0El.classList.remove('active-player');
+    player1El.classList.add('active-player');
+    player0El.classList.remove('winner');
+    player1El.classList.remove('winner');
+
+    mainBackgroundWinner.classList.remove('main-winner-background');
+}
+init();
+
 
 // roll dice functionality
 rollDiceBtn.addEventListener('click' , function () {
@@ -121,6 +143,12 @@ holdBtn.addEventListener('click' , function () {
 
 });
 
+// hold functionality
+newGameBtn.addEventListener('click' , init);
+
+// restart functionality
+restart.addEventListener('click' , init);
+
 
 
 // game rule functionality
@@ -128,11 +156,35 @@ gameRuleBtn.addEventListener('click' , function () {
     gameRuleBtn.classList.add('hidden');
 
     gameRuleContent.classList.add('fix-display-game-rule-content');
+    layer.classList.remove('hidden');
 });
 
 // close game rule functionality
 closeGameRule.addEventListener('click' , function () {
     gameRuleContent.classList.remove('fix-display-game-rule-content');
     gameRuleBtn.classList.remove('hidden');
+    layer.classList.add('hidden');
 
+});
+
+layer.addEventListener('click' , function () {
+    gameRuleContent.classList.remove('fix-display-game-rule-content');
+    layer.classList.add('hidden');
+    gameRuleBtn.classList.remove('hidden');
+});
+
+
+hideTools.addEventListener('click' , function() {
+    gameRuleBtn.classList.toggle('hidden');
+    hideTools.classList.add('hidden');
+    author.classList.add('hidden');
+    showTools.classList.remove('hidden');
+    restart.classList.add('hidden');
+});
+showTools.addEventListener('click' , function() {
+    gameRuleBtn.classList.toggle('hidden');
+    hideTools.classList.remove('hidden');
+    showTools.classList.add('hidden');
+    author.classList.remove('hidden');
+    restart.classList.remove('hidden');
 });

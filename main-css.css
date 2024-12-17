@@ -16,8 +16,9 @@ main {
     height: 100vh;
     background: linear-gradient(45deg , #7462ff , #23d5ab);
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
+    padding-left: 10em;
 }
 
 @keyframes move {
@@ -37,6 +38,24 @@ main {
     background-repeat: no-repeat;
     animation: move 1s linear infinite;
 }
+
+
+.logo {
+    font-size: 30px;
+    position: absolute;
+    top: -5px;
+    left: 30px;
+    font-weight: 800;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.753);
+    font-family: 'Courier New', Courier, monospace;
+}
+.logo span {
+    font-size: 50px;
+    color: #f48e21;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 
 .game-container {
     /* border: 1px solid rgb(252, 249, 244); */
@@ -179,10 +198,10 @@ main {
 .fix-spin {
     background: linear-gradient(180deg , #d2001a , #7462ff , #f48e21);
     position: absolute;
-    top: 15px;
-    right: 15px;
-    width: 190px;
-    height: 190px;
+    top: 30px;
+    right: 40px;
+    width: 155px;
+    height: 155px;
     border-radius: 50%;
     padding: 10px;
     z-index: 1;
@@ -191,12 +210,12 @@ main {
 }
 .clock {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 30px;
+    right: 40px;
     font-size: 30px;
     border-radius: 50%;
-    width: 180px;
-    height: 180px;
+    width: 150px;
+    height: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -207,7 +226,7 @@ main {
 }
 
 .clock span {
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 800;
     position: relative;
     letter-spacing: 3px;
@@ -224,14 +243,17 @@ main {
 #hrs::after {
     content: 'hrs';
     letter-spacing: 0;
+    font-size: 17px;
 }
 #min::after {
     content: 'min';
     letter-spacing: 0;
+    font-size: 17px;
 }
 #sec::after {
     content: 'sec';
     letter-spacing: 0;
+    font-size: 17px;
 }
 
 .game-rule-btn {
@@ -241,7 +263,7 @@ main {
     position: absolute;
     top: 10em;
     right: 20px;
-    border: 2px solid #7462ff;
+    border: 2px solid #f48e21;
     border-radius: 50px;
     padding: 10px 20px;
     cursor: pointer;
@@ -255,7 +277,7 @@ main {
 }
 
 .game-rule-btn span {
-    color: #7462ff;
+    color: #f48e21;
     transition: 0.5s;
 }
 .game-rule-btn:hover span {
@@ -280,23 +302,24 @@ main {
 }
 
 .game-rule-content {
-    border: 1px solid black;
     width: 95%;
-    height: 90%;
+    height: 93%;
     position: fixed;
     top: 50%;
     left: -50%;
     transform: translate(-50% , -50%);
-    background-color: white;
     z-index: 10;
     opacity: 0;
     transition: 0.5s;
+    background-color: white;
+    display: flex;
 }
 
 .fix-display-game-rule-content {
     opacity: 1;
     left: 50%;
 }
+
 
 #close-game-rule {
     font-size: 25px;
@@ -306,15 +329,95 @@ main {
     cursor: pointer;
 }
 
+.layer {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    filter: blur(25px);
+    background-color: rgba(0, 0, 0, 0.61);
+}
+
+.game-img {
+    width: 40%;
+    height: 100%;
+    background-image: url('/images/game-rules-logo.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.game-explain {
+    padding: 5px 10px 10px 15px;
+    width: 60%;
+}
+.game-explain-content {
+    line-height: 35px;
+    display: flex;
+    align-items: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.game-explain-content span {
+    font-weight: 700;
+    text-decoration: underline;
+    white-space: nowrap;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-transform: capitalize;
+    margin: 0 7px;
+}
+.game-rule-header {
+    font-size: 25px;
+    font-weight: 800;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 10px;
+    color: rgba(0, 0, 0, 0.829);
+    /* font-family: 'Courier New', Courier, monospace; */
+}
+.game-rule-header span {
+    font-size: 25px;
+    color: #f48e21;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.restart {
+    margin-top: 80px;
+}
+.author {
+    margin-top: 160px;
+}
+.hide-tools {
+    margin-top: 240px;
+}
+.show-tools {
+    margin-top: 240px;
+}
+
+.ge-img img {
+    width: 50px;
+    height: 50px;
+}
+.game-explain-content.ed-ge {
+    display: flex;
+    /* align-items: center; */
+    margin-top: 10px;
+}
+.ge-text {
+    margin-left: 10px;
+}
+
+
 
 
 
 @keyframes rotate-clock-color {
     from {
-        transform: rotate(0deg);
+        transform: rotate(0turn);
     }
     to {
-        transform: rotate(10deg);
+        transform: rotate(1turn);
     }
 }
 
