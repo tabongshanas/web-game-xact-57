@@ -26,9 +26,22 @@ const layer = document.querySelector('.layer');
 const hideTools = document.querySelector('.hide-tools');
 const showTools = document.querySelector('.show-tools');
 const author = document.querySelector('.author');
+const authorContentContainer = document.querySelector('.author-content-container');
+const layer2 = document.querySelector('.layer2');
 const restart = document.querySelector('.restart');
+const closeAuthorPage = document.getElementById('close-author-page');
 const closeGameRule = document.getElementById('close-game-rule');
 const mainBackgroundWinner = document.getElementById('main');
+
+const playBtn = document.getElementById('play-btn');
+const pauseBtn = document.getElementById('pause-btn');
+const gameSound = document.getElementById('game-sound');
+const gameSound2 = document.getElementById('game-sound2');
+const gameSound3= document.getElementById('game-sound3');
+
+const loaderCounter = document.querySelector('.loader-counter');
+const loader = document.querySelector('.loader');
+
 
 showTools.classList.add('hidden');
 
@@ -76,6 +89,11 @@ const init = function() {
     mainBackgroundWinner.classList.remove('main-winner-background');
 }
 init();
+
+
+pauseBtn.classList.add('hidden');
+loaderCounter.textContent = 1;
+
 
 
 // roll dice functionality
@@ -154,9 +172,11 @@ restart.addEventListener('click' , init);
 // game rule functionality
 gameRuleBtn.addEventListener('click' , function () {
     gameRuleBtn.classList.add('hidden');
+    author.classList.remove('hidden');
 
     gameRuleContent.classList.add('fix-display-game-rule-content');
     layer.classList.remove('hidden');
+    authorContentContainer.classList.remove('author-js-add');
 });
 
 // close game rule functionality
@@ -175,11 +195,17 @@ layer.addEventListener('click' , function () {
 
 
 hideTools.addEventListener('click' , function() {
-    gameRuleBtn.classList.toggle('hidden');
+    gameRuleBtn.classList.add('hidden');
     hideTools.classList.add('hidden');
     author.classList.add('hidden');
     showTools.classList.remove('hidden');
     restart.classList.add('hidden');
+    
+    layer2.classList.add('hidden');
+    authorContentContainer.classList.remove('author-js-add');
+
+    gameRuleContent.classList.remove('fix-display-game-rule-content');
+    layer.classList.add('hidden');
 });
 showTools.addEventListener('click' , function() {
     gameRuleBtn.classList.toggle('hidden');
@@ -188,3 +214,84 @@ showTools.addEventListener('click' , function() {
     author.classList.remove('hidden');
     restart.classList.remove('hidden');
 });
+
+
+layer2.classList.add('hidden');
+author.addEventListener('click' , function() {
+    authorContentContainer.classList.add('author-js-add');
+    layer2.classList.remove('hidden');
+    author.classList.add('hidden');
+    gameRuleBtn.classList.remove('hidden');
+    gameRuleContent.classList.remove('fix-display-game-rule-content');
+});
+layer2.addEventListener('click' , function() {
+    authorContentContainer.classList.remove('author-js-add');
+    layer2.classList.add('hidden');
+    author.classList.remove('hidden');
+});
+closeAuthorPage.addEventListener('click' , function() {
+    authorContentContainer.classList.remove('author-js-add');
+    layer2.classList.add('hidden');
+    author.classList.remove('hidden');
+});
+
+
+// functionality of game sound
+playBtn.addEventListener('click' , () => {
+    playBtn.classList.toggle('hidden');
+    pauseBtn.classList.toggle('hidden');
+    gameSound.play();
+    gameSound2.pause();
+    gameSound3.pause();
+});
+
+pauseBtn.addEventListener('click' , () => {
+    playBtn.classList.toggle('hidden');
+    pauseBtn.classList.toggle('hidden');
+    gameSound.pause();
+    gameSound2.pause();
+    gameSound3.pause();
+});
+
+window.addEventListener('keydown' , (e) => {
+    if (e.keyCode === 49) {
+        gameSound.play();
+        gameSound2.pause();
+        gameSound3.pause();
+        playBtn.classList.add('hidden');
+        pauseBtn.classList.remove('hidden');
+    }
+});
+
+window.addEventListener('keydown' , (e) => {
+    if (e.keyCode === 50) {
+        gameSound2.play();
+        gameSound.pause();
+        gameSound3.pause();
+        playBtn.classList.add('hidden');
+        pauseBtn.classList.remove('hidden');
+    }
+});
+
+window.addEventListener('keydown' , (e) => {
+    if (e.keyCode === 51) {
+        gameSound3.play();
+        gameSound2.pause();
+        gameSound.pause();
+        playBtn.classList.add('hidden');
+        pauseBtn.classList.remove('hidden');
+    }
+});
+
+let i;
+setInterval(function() {
+    for (i = 1; i < 100; i++) {
+        loaderCounter.textContent = `${i}%`;
+    }
+} , 1000);
+
+
+// loader functionality
+setInterval(() => {
+    loader.classList.add('loader-hide');
+} , 20000);

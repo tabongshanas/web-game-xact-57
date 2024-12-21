@@ -11,6 +11,10 @@
     box-sizing: border-box;
 }
 
+abbr {
+    text-decoration: none;
+}
+
 
 main {
     height: 100vh;
@@ -330,11 +334,13 @@ main {
 }
 
 .layer {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     position: fixed;
+    top: 0;
+    left: 0;
     filter: blur(25px);
-    background-color: rgba(0, 0, 0, 0.61);
+    background-color: rgba(0, 0, 0, 0.808);
 }
 
 .game-img {
@@ -409,6 +415,163 @@ main {
 }
 
 
+.author-content-container {
+    background-image: url('/images/sha-apply.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 95%;
+    height: 90%;
+    z-index: 10;
+    position: absolute;
+    top: 50%;
+    left: -50%;
+    opacity: 0;
+    transition: 0.5s;
+    transform: translate(-50% , -50%);
+}
+.author-content-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.582);
+    width: 100%;
+    height: 100%;
+}
+.layer2 {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    filter: blur(25px);
+    background-color: rgba(0, 0, 0, 0.699);
+}
+
+#close-author-page {
+    font-size: 25px;
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    z-index: 1000000;
+    color: white;
+    cursor: pointer;
+}
+
+.author-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    line-height: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 90%;
+    transform: translate(-50% , -50%);
+    font-weight: 600;
+    padding: 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.author-text span {
+    color: #f48e21;
+}
+
+.author-text abbr {
+    text-decoration: underline;
+}
+
+
+.game-sound {
+    /* position: absolute; */
+    z-index: 2000000;
+}
+
+
+.author-js-add {
+    left: 50%;
+    opacity: 1;
+}
+
+
+.game-sound-controls i {
+    position: absolute;
+    left: 40px;
+    bottom: 25px;
+    font-size: 27px;
+    color: #f48e21;
+    cursor: pointer;
+}
+
+#game-sound {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    display: none;
+}
+
+.edit-game-sound {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    display: none;
+}
+
+
+.loader {
+    background-color: #7462ff;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader-counter {
+    border: 6px solid white;
+    border-top-color: #d2001a;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    position: absolute;
+    top: 33em;
+    right: 5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: 700;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+    animation: spin-loader 2s linear infinite;
+}
+
+.loader img {
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes spin-loader {
+    from {
+        transform: rotate(0turn);
+    }
+    to {
+        transform: rotate(1turn);
+    }
+}
+
 
 
 
@@ -420,7 +583,6 @@ main {
         transform: rotate(1turn);
     }
 }
-
 
 
 
@@ -439,4 +601,10 @@ main {
 
 .winner {
     background-color: #f48e21ef;
+}
+
+.loader-hide {
+    opacity: 0;
+    transition: 1s;
+    visibility: hidden;
 }
