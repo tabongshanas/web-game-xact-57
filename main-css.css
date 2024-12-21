@@ -539,7 +539,7 @@ main {
     align-items: center;
 }
 
-.loader-counter {
+.loader-counter2 {
     border: 6px solid white;
     border-top-color: #d2001a;
     width: 60px;
@@ -555,7 +555,16 @@ main {
     font-weight: 700;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
-    animation: spin-loader 2s linear infinite;
+    animation: spin-loader 0.755s linear infinite;
+}
+
+.loader-counter {
+    color: white;
+    font-weight: 700;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    position: absolute;
+    right: 5.9em;
+    bottom: 70px;
 }
 
 .loader img {

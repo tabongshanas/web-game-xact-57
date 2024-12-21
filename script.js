@@ -283,15 +283,28 @@ window.addEventListener('keydown' , (e) => {
     }
 });
 
-let i;
-setInterval(function() {
-    for (i = 1; i < 100; i++) {
-        loaderCounter.textContent = `${i}%`;
-    }
-} , 1000);
+// let i;
+// setInterval(function() {
+//     for (i = 1; i < 100; i++) {
+//         loaderCounter.textContent = `${i}%`;
+//     }
+// } , 1000);
+
+function count(start , stop) {
+    setInterval(() => {
+        loaderCounter.textContent = `${start}%`;
+        if(start >= stop) {
+            clearTimeout();
+        } else {
+            start++;
+        }
+    } , 200);
+};
+
+count(1 , 99);
 
 
 // loader functionality
 setInterval(() => {
     loader.classList.add('loader-hide');
-} , 20000);
+} , 25000);
