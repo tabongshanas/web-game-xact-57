@@ -429,13 +429,16 @@ main {
     opacity: 0;
     transition: 0.5s;
     transform: translate(-50% , -50%);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 .author-content-container::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.582);
+    background-color: rgba(0, 0, 0, 0.733);
     width: 100%;
     height: 100%;
 }
@@ -445,8 +448,9 @@ main {
     position: fixed;
     top: 0;
     left: 0;
-    filter: blur(25px);
-    background-color: rgba(0, 0, 0, 0.699);
+    /* filter: blur(25px); */
+    background-color: rgba(0, 0, 0, 0.911);
+    z-index: 10;
 }
 
 #close-author-page {
@@ -498,7 +502,8 @@ main {
 
 .game-sound-controls i {
     position: absolute;
-    left: 40px;
+    left: 20px;
+    top: 21.5em;
     bottom: 25px;
     font-size: 27px;
     color: #f48e21;
@@ -616,4 +621,181 @@ main {
     opacity: 0;
     transition: 1s;
     visibility: hidden;
+}
+
+
+/* responsives */
+@media(max-width: 1299px) {
+    main {
+        padding-left: 6em;
+    }
+}
+@media(max-width: 1225px) {
+    main {
+        padding-left: 4em;
+    }
+}
+@media(max-width: 1190px) {
+    .game-container {
+        width: 800px;
+    }
+}
+@media(max-width: 1090px) {
+    .game-container {
+        width: 700px;
+    }
+}
+@media(max-width: 999px) {
+    .game-container {
+        width: 870px;
+    }
+
+    .clock {
+        top: 5px;
+        height: 50px;
+        border-radius: 10%;
+        padding-top: 13px;
+    }
+    .fix-spin {
+        display: none;
+    }
+    #hrs::after {
+        font-size: 10px;
+    }
+    #min::after {
+        font-size: 10px;
+    }
+    #sec::after {
+        font-size: 10px;
+    }
+    .clock span::after {
+        bottom: -15px;
+    }
+
+    .hide-tools {
+        top: 330px;
+        font-size: 21px;
+        padding: 10px 15px;
+    }
+    .show-tools {
+        top: 330px;
+        font-size: 21px;
+        padding: 10px 15px;
+    }
+    .author {
+        top: 415px;
+        right: 160px;
+        font-size: 20px;
+        padding: 7px 13px;
+    }
+    .restart {
+        top: 495px;
+        right: 260px;
+        font-size: 20px;
+        padding: 7px 13px;
+    }
+    .rules {
+        top: 575px;
+        right: 365px;
+        font-size: 20px;
+        padding: 7px 13px;
+    }
+}
+
+@media(max-width: 972px) {
+    .game-container {
+        width: 750px;
+    }
+    main {
+        padding-left: 6em;
+    }
+}
+@media(max-width: 900px) {
+    main {
+        padding-left: 4em;
+    }
+}
+@media(max-width: 860px) {
+    .game-container {
+        width: 100%;
+    }
+     main {
+        padding-left: 0;
+        padding: 0 15px;
+    }
+}
+
+@media(max-width: 660px) {
+    .player-content {
+        position: relative;
+        right: 50px;
+    }
+    .position-content {
+        position: relative;
+        left: 50px;
+    }
+
+    .fix-position {
+        position: relative;
+        left: -100px;
+    }
+    .score-fix {
+        position: relative;
+        left: 0;
+    }
+    .player-main-score {
+        position: relative;
+        right: 100px;
+    }
+
+    .fix-player-text {
+        position: relative;
+        left: 50px;
+    }
+}
+
+@media(max-width: 590px) {
+    .hide-tools {
+        font-size: 17px;
+    }
+    .show-tools {
+        top: 330px;
+        font-size: 17px;
+        padding: 10px 15px;
+    }
+    .author {
+        top: 415px;
+        right: 145px;
+        font-size: 16px;
+        padding: 7px 13px;
+    }
+    .restart {
+        top: 495px;
+        right: 240px;
+        font-size: 16px;
+        padding: 7px 13px;
+    }
+    .rules {
+        top: 575px;
+        right: 340px;
+        font-size: 16px;
+        padding: 7px 13px;
+    }
+
+    .player-content {
+        width: 120px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media(max-width: 530px) {
+    main {
+        display: none;
+    }
+    body {
+        background-color: antiquewhite;
+    }
 }

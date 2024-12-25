@@ -223,16 +223,27 @@ author.addEventListener('click' , function() {
     author.classList.add('hidden');
     gameRuleBtn.classList.remove('hidden');
     gameRuleContent.classList.remove('fix-display-game-rule-content');
+    gameSound2.play();
+    gameSound.pause();
+    gameSound3.pause();
 });
 layer2.addEventListener('click' , function() {
     authorContentContainer.classList.remove('author-js-add');
     layer2.classList.add('hidden');
     author.classList.remove('hidden');
+    gameSound2.pause();
+    gameSound.play();
+    playBtn.classList.add('hidden');
+    pauseBtn.classList.remove('hidden');
 });
 closeAuthorPage.addEventListener('click' , function() {
     authorContentContainer.classList.remove('author-js-add');
     layer2.classList.add('hidden');
     author.classList.remove('hidden');
+    gameSound2.pause();
+    gameSound.play();
+    playBtn.classList.add('hidden');
+    pauseBtn.classList.remove('hidden');
 });
 
 
@@ -301,10 +312,11 @@ function count(start , stop) {
     } , 200);
 };
 
-count(1 , 99);
+count(1 , 3);
 
 
 // loader functionality
+// time to use is 25000
 setInterval(() => {
     loader.classList.add('loader-hide');
-} , 25000);
+} , 200);
