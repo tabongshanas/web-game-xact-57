@@ -52,6 +52,12 @@ const subscribeLogo = document.querySelector('.subscribe-logo');
 const subscribeContent = document.querySelector('.subscribe-content');
 const closeSubscribe = document.querySelector('.close-subscribe');
 
+const firstName = document.getElementById('first-name');
+const lastName = document.getElementById('last-name');
+const phoneNumber = document.getElementById('phone-number');
+const subscribeMessage = document.getElementById('subscribe-message');
+const email = document.getElementById('email');
+
 
 showTools.classList.add('hidden');
 
@@ -307,6 +313,28 @@ window.addEventListener('keydown' , (e) => {
     }
 });
 
+window.addEventListener('keydown' , (e) => {
+    if (e.keyCode === 83) {
+        gameSound3.pause();
+        gameSound2.pause();
+        gameSound.pause();
+        playBtn.classList.add('hidden');
+        pauseBtn.classList.remove('hidden');
+        playBtn.classList.remove('hidden');
+        pauseBtn.classList.add('hidden');
+    }
+});
+
+window.addEventListener('keydown' , (e) => {
+    if (e.keyCode === 32) {
+        gameSound3.pause();
+        gameSound2.pause();
+        gameSound.play();
+        playBtn.classList.add('hidden');
+        pauseBtn.classList.remove('hidden');
+    }
+});
+
 // let i;
 // setInterval(function() {
 //     for (i = 1; i < 100; i++) {
@@ -325,45 +353,99 @@ function count(start , stop) {
     } , 200);
 };
 
-count(1 , 3);
+count(1 , 99);
 
 
 // loader functionality
 // time to use is 25000
 setInterval(() => {
     loader.classList.add('loader-hide');
-} , 200);
+} , 25000);
 
 
 
 // functionality of subscribe btn
 subscribeBtn.addEventListener('click' , (e) => {
     e.preventDefault();
-    loaderSubscribeBtn.classList.remove('hidden');
-    setInterval(function() {
-        loaderSubscribeBtn.classList.add('hidden'); 
-        inputArea.classList.add('hide-subscribe-info');
-        subcribeSuccess.classList.remove('hidden');
+    if(email.value) {
+        email.classList.add('input-border-contain'); 
+    }
+    // first name if
+    if(firstName.value) {  
+        // last name if
+        // firstName.style = 'border: 1px solid rgb(24, 199, 24)';
+        firstName.classList.remove('input-border');
+        firstName.classList.add('input-border-contain');
+        if(lastName.value) {
+            // phone number if
+            lastName.classList.remove('input-border');
+            lastName.classList.add('input-border-contain');
+            if(phoneNumber.value) {
+                // subscribe message if
+                phoneNumber.classList.remove('input-border');
+                phoneNumber.classList.add('input-border-contain');
+                if(subscribeMessage.value) {
+                    subscribeMessage.classList.remove('input-border');
+                    subscribeMessage.classList.add('input-border-contain');
+                    
+                    // everything in the if statement are true
+                    loaderSubscribeBtn.classList.remove('hidden');
+                    setInterval(function() {
+                        loaderSubscribeBtn.classList.add('hidden'); 
+                        inputArea.classList.add('hide-subscribe-info');
+                        subcribeSuccess.classList.remove('hidden');
+                    
+                        // Auto close (This have a problem)
+                        // setInterval(() => {
+                        //     subscribeContainer.classList.add('hidden');
+                        //     layer3.classList.add('hidden');
+                        // } , 4000);
+                        
+                        setInterval(() => {
+                            closeSubscribe.classList.remove('hidden');
+                        } , 3000);
+                    } , 3000);
+
+                } 
+                // subscribe message else
+                else {
+                    subscribeMessage.classList.add('input-border');
+                }
+            }
+            // phone number else
+            else {
+                phoneNumber.classList.add('input-border');
+            }
+        } 
+        // last name else
+        else {
+            lastName.classList.add('input-border');
+        }
+    }
+    // first name else
+    else {
+        firstName.classList.add('input-border');
+    }
     
-        // Auto close (This have a problem)
-        // setInterval(() => {
-        //     subscribeContainer.classList.add('hidden');
-        //     layer3.classList.add('hidden');
-        // } , 4000);
-        
-        setInterval(() => {
-            closeSubscribe.classList.remove('hidden');
-        } , 3000);
-    } , 3000);
 });
 
 
 subscribeLogo.addEventListener('click' , () => {
     layer3.classList.add('bring-subscribe-content');
     subscribeContent.classList.add('bring-subscribe-content');
+    gameRuleContent.classList.remove('fix-display-game-rule-content');
+    layer.classList.add('hidden');
+    gameRuleBtn.classList.remove('hidden');
 });
 
 closeSubscribe.addEventListener('click' , function() {
     layer3.classList.remove('bring-subscribe-content');
     subscribeContent.classList.remove('bring-subscribe-content');
+});
+
+window.addEventListener('keydown' , function(e) {
+    if(e.keyCode === 79) {
+        layer3.classList.add('bring-subscribe-content');
+        subscribeContent.classList.add('bring-subscribe-content');
+    }
 });
