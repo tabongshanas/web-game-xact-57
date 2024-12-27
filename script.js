@@ -42,6 +42,16 @@ const gameSound3= document.getElementById('game-sound3');
 const loaderCounter = document.querySelector('.loader-counter');
 const loader = document.querySelector('.loader');
 
+const subscribeBtn = document.getElementById('subscribe-btn');
+const inputArea = document.querySelector('.input-area');
+const subcribeSuccess = document.querySelector('.subcribe-success');
+const subscribeContainer = document.querySelector('.subscribe-container');
+const layer3 = document.querySelector('.layer3');
+const loaderSubscribeBtn = document.querySelector('.loader-subscribe-btn');
+const subscribeLogo = document.querySelector('.subscribe-logo');
+const subscribeContent = document.querySelector('.subscribe-content');
+const closeSubscribe = document.querySelector('.close-subscribe');
+
 
 showTools.classList.add('hidden');
 
@@ -93,6 +103,9 @@ init();
 
 pauseBtn.classList.add('hidden');
 loaderCounter.textContent = 1;
+subcribeSuccess.classList.add('hidden');
+loaderSubscribeBtn.classList.add('hidden');
+closeSubscribe.classList.add('hidden');
 
 
 
@@ -320,3 +333,37 @@ count(1 , 3);
 setInterval(() => {
     loader.classList.add('loader-hide');
 } , 200);
+
+
+
+// functionality of subscribe btn
+subscribeBtn.addEventListener('click' , (e) => {
+    e.preventDefault();
+    loaderSubscribeBtn.classList.remove('hidden');
+    setInterval(function() {
+        loaderSubscribeBtn.classList.add('hidden'); 
+        inputArea.classList.add('hide-subscribe-info');
+        subcribeSuccess.classList.remove('hidden');
+    
+        // Auto close (This have a problem)
+        // setInterval(() => {
+        //     subscribeContainer.classList.add('hidden');
+        //     layer3.classList.add('hidden');
+        // } , 4000);
+        
+        setInterval(() => {
+            closeSubscribe.classList.remove('hidden');
+        } , 3000);
+    } , 3000);
+});
+
+
+subscribeLogo.addEventListener('click' , () => {
+    layer3.classList.add('bring-subscribe-content');
+    subscribeContent.classList.add('bring-subscribe-content');
+});
+
+closeSubscribe.addEventListener('click' , function() {
+    layer3.classList.remove('bring-subscribe-content');
+    subscribeContent.classList.remove('bring-subscribe-content');
+});

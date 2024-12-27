@@ -577,6 +577,147 @@ main {
     height: 100%;
 }
 
+/* subscribe */
+.subscribe-logo i {
+    font-size: 25px;
+    color: #f48e21;
+    position: absolute;
+    left: 0;
+    background-color: white;
+    padding: 10px 12px 10px 5px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: 0.5s;
+    border-top: 3px solid;
+    border-right: 3px solid;
+    border-bottom: 3px solid;
+}
+.subscribe-logo i:hover {
+    opacity: 1;
+}
+.subscribe-content {
+    background-color: #7462ff;
+    width: 300px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: -100%;
+    z-index: 100;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    transition: 1s;
+}
+.subscribe-text {
+    text-transform: uppercase;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+/* .input-area {
+    position: absolute;
+    left: 20px;
+    right: 20px;
+} */
+.input-area {
+    transition: 1s;
+}
+.inputs {
+    background-color: transparent;
+    border: 1px solid white;
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 17px;
+    color: white;
+    outline: none;
+    margin-top: 25px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.inputs:focus {
+    border: 1px solid #f48e21;
+}
+
+.primary-btn {
+    margin-top: 20px;
+}
+.primary-btn a {
+    text-transform: capitalize;
+    color: #f48e21;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 700;
+}
+.primary-btn a:hover {
+    cursor: pointer;
+    text-decoration: none;
+}
+.layer3 {
+    background-color: rgba(0, 0, 0, 0.842);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: -100%;
+    z-index: 10;
+    transition: 0.5s;
+}
+.close-subscribe i {
+    font-size: 23px;
+    color: white;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+}
+
+.subcribe-success {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 25px;
+    color: white;
+    position: absolute;
+}
+
+.loader-subscribe-btn {
+    width: 25px;
+    height: 25px;
+    border: 3px solid white;
+    border-radius: 50%;
+    border-top-color: #d2001a;
+    position: absolute;
+    bottom: 65px;
+    left: 180px;
+
+    animation: spin-subscribe-btn 0.7s linear infinite;
+}
+
+@keyframes spin-subscribe-btn {
+    from {
+        transform: rotate(0turn);
+    }
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+/* message area js classes */
+.hide-subscribe-info {
+    /* left: -100px; */
+    position: absolute;
+    /* left: -100%; */
+    right: 100%;
+}
+
+.bring-subscribe-content {
+    left: 0;
+}
+
+
+
+
+
+
 @keyframes spin-loader {
     from {
         transform: rotate(0turn);
