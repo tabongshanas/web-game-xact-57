@@ -561,7 +561,7 @@ main {
     font-weight: 700;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
-    animation: spin-loader 0.755s linear infinite;
+    animation: spin-loader 0.8s ease infinite;
 }
 
 .loader-counter {

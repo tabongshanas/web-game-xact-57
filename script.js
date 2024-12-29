@@ -371,12 +371,12 @@ subscribeBtn.addEventListener('click' , (e) => {
         email.classList.add('input-border-contain'); 
     }
     // first name if
-    if(firstName.value) {  
+    if(firstName.value.length >= 6) {  
         // last name if
         // firstName.style = 'border: 1px solid rgb(24, 199, 24)';
         firstName.classList.remove('input-border');
         firstName.classList.add('input-border-contain');
-        if(lastName.value) {
+        if(lastName.value.length >= 6) {
             // phone number if
             lastName.classList.remove('input-border');
             lastName.classList.add('input-border-contain');
@@ -384,7 +384,7 @@ subscribeBtn.addEventListener('click' , (e) => {
                 // subscribe message if
                 phoneNumber.classList.remove('input-border');
                 phoneNumber.classList.add('input-border-contain');
-                if(subscribeMessage.value) {
+                if(subscribeMessage.value.length >= 20) {
                     subscribeMessage.classList.remove('input-border');
                     subscribeMessage.classList.add('input-border-contain');
                     
